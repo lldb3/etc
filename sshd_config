@@ -1,29 +1,17 @@
-#	Custom sshd_config, with explicit options 
-#    uncoment some when server is configured
-
-# This is the sshd server system-wide configuration file.  See
-# sshd_config(5) for more information.
-
-# The strategy used for options in the default sshd_config shipped with
-# OpenSSH is to specify options with their default value where
-# possible, but leave them commented.  Uncommented options override the
-# default value.
-
-Include /etc/ssh/sshd_config.d/*.conf
+#Include /etc/ssh/sshd_config.d/*.conf
 
 Protocol 2
 Port 22  ## change after if needed
 
-## By default SSH will listen to on all IP addresses (0.0.0.0) configured on the machine. 
 ## You should explicitly bind SSH to a specific IP address, 
 ##  preferably a management address on an isolated VLAN
 #AddressFamily any
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
-#HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
-#HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_ed25519_key
 
 # Ciphers and keying
 #RekeyLimit default none
@@ -31,23 +19,24 @@ Port 22  ## change after if needed
 # Logging
 #SyslogFacility AUTH
 #LogLevel INFO
-
-# Authentication:
-
 #LoginGraceTime 2m
 PermitRootLogin yes ## change to no once you have a valid sudo user
 StrictModes yes
-MaxAuthTries 5
+MaxAuthTries 2
 #MaxSessions 10
 
-## Granular ssh user access: allow some users, or explicitly deny some using DenyUsers
-# AllowUsers root foo bar
+KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
+HostKeyAlgorithms ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-256,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com
 
+## Granular ssh user access: allow some users, or deny  
+# AllowUsers root foo bar
+# DenyUsers foo bar
 # Expect .ssh/authorized_keys2 to be disregarded by default in future.
 #AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
 
 #AuthorizedPrincipalsFile none
-
 #AuthorizedKeysCommand none
 #AuthorizedKeysCommandUser nobody
 
@@ -69,34 +58,17 @@ ChallengeResponseAuthentication no
 
 # Kerberos disabled
 KerberosAuthentication no
-#KerberosOrLocalPasswd yes
-#KerberosTicketCleanup yes
-#KerberosGetAFSToken no
 
 # GSSAPI disabled
 GSSAPIAuthentication no
-#GSSAPICleanupCredentials yes
-#GSSAPIStrictAcceptorCheck yes
-#GSSAPIKeyExchange no
 
-# Set this to 'yes' to enable PAM authentication, account processing,
-# and session processing. If this is enabled, PAM authentication will
-# be allowed through the ChallengeResponseAuthentication and
-# PasswordAuthentication.  Depending on your PAM configuration,
-# PAM authentication via ChallengeResponseAuthentication may bypass
-# the setting of "PermitRootLogin yes
-# If you just want the PAM account and session checks to run without
-# PAM authentication, then enable this but set PasswordAuthentication
-# and ChallengeResponseAuthentication to 'no'.
+# PAM 
 UsePAM yes
 
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
 #GatewayPorts no
 X11Forwarding no ## change to yes if needed
-#X11DisplayOffset 10
-#X11UseLocalhost yes
-#PermitTTY yes
 PrintMotd no
 PrintLastLog yes
 #TCPKeepAlive yes
@@ -104,15 +76,9 @@ PrintLastLog yes
 Compression no
 ClientAliveInterval 900
 ClientAliveCountMax 0
-#UseDNS no
-#PidFile /var/run/sshd.pid
-#MaxStartups 10:30:100
-#PermitTunnel no
-#ChrootDirectory none
-#VersionAddendum none
 
 # set a banner 
-Banner none
+Banner /etc/banner
 
 # Allow client to pass locale environment variables
 AcceptEnv LANG LC_*
