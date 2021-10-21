@@ -1,6 +1,12 @@
 #!/bin/bash
+set -o errexit
 
-# root check
+echo "This script will regenerate the ssh host keys and change sensible defaults"
+
+if [[ $EUID -ne 0 ]]; then
+    echo "Please run as root. Stopping"
+    exit 1
+fi
 
 rm /etc/ssh/ssh_host_*
 ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key -N ""
