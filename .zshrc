@@ -5,7 +5,8 @@ export PATH=$PATH:$HOME/.local/bin/
 ## Virtualenvwrapper
 export WORKON_HOME=$HOME/.venvs
 export PROJECT_HOME=$HOME/gits
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# setup afterwards if needed
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export LC_ALL=en_US.UTF-8
