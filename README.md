@@ -1,3 +1,3 @@
-# fsetup
+# Etc
 
-Quick setup scripts to install some essential packages and zsh config
+Basically a dotfiles / quick setup for certain services.
