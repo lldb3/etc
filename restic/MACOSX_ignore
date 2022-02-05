@@ -1,0 +1,15 @@
+# exclude Trashes
+.Trashes
+._.Trashes
+.disk
+.fseventsd
+
+# Ignore temp fpile
+.TemporaryItems
+
+# Ignore Spotlight
+.Spotlight-V100
+
+# Document revisions
+.DocumentRevisions-V100
+
