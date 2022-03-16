@@ -12,6 +12,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 apt update 
-apt install unattended-updates
+apt install -y unattended-upgrades
 
 cp -rv {,/}etc/apt/apt.conf.d/
