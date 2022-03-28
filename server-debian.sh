@@ -14,4 +14,4 @@ fi
 apt update 
 apt install -y unattended-upgrades
 
-cp -rv {,/}etc/apt/apt.conf.d/
+cp  etc/apt/apt.conf.d/* /etc/apt/apt.conf.d/
