@@ -20,6 +20,11 @@ export LANGUAGE=en_US.UTF-8
 alias dc="docker-compose"
 alias fd="fdfind"
 
+##### Optional aliases
+alias ls="exa"
+alias l="exa -la"
+alias cat="batcat -p"
+
 ##### ANTIGEN
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -30,18 +35,15 @@ antigen bundle colored-man-pages
 antigen bundle git
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle vscode
 antigen bundle pip
 antigen bundle cp
 antigen bundle python
-antigen bundle lxd
 antigen bundle rsync
 antigen bundle zsh-256color
 antigen bundle heroku
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
 
 ## Themes
 antigen theme gentoo

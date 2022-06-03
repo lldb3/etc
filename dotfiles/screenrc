@@ -1,0 +1,11 @@
+# Shell and startup
+startup_message off
+shell /opt/bin/zsh
+
+# Caption
+caption always "%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"
+
+# Scrollback 
+termcapinfo xterm* ti@:te@
+defscrollback 5000
+
