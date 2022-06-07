@@ -8,10 +8,12 @@ fi
 
 
 MINIMUM="git curl ncdu tldr gcc clang python3 python3-pip python3-setuptools python3-wheel virtualenvwrapper"
-SYSTOOLS="ufw ncdu rkhunter net-tools dnsutils traceroute hping3"
+SYSTOOLS="ufw rkhunter net-tools dnsutils traceroute hping3"
 XTOPS="iftop htop virt-top nethogs iotop"
 CONTAINER="docker docker-compose"
+EXTRA="cargo exa bat"
 
 apt update 
-apt install -y $MINIMUM $SYSTOOLS $XTOPS $CONTAINER
+apt install -y $MINIMUM $SYSTOOLS $XTOPS $CONTAINER $EXTRA
 
+cargo install topgrade cargo-update

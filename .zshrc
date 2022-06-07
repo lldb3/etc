@@ -1,6 +1,6 @@
 HISTCONTROL=erasedups:ignorespace
 
-export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/.local/bin/:$HOME/.cargo/bin
 
 ## Virtualenvwrapper
 export WORKON_HOME=$HOME/.venvs
@@ -16,16 +16,7 @@ export LANGUAGE=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-##### Aliases
-alias dc="docker-compose"
-alias fd="fdfind"
-
-##### Optional aliases
-alias ls="exa"
-alias l="exa -la"
-alias cat="batcat -p"
-
-##### ANTIGEN
+############################################# ANTIGEN #############################################
 source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
@@ -51,3 +42,13 @@ antigen theme gentoo
 antigen apply
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+############################################# Aliases #############################################
+
+alias dc="docker-compose" # or 'docker compose'
+alias fd="fdfind"
+
+##### Optional aliases
+alias ls="exa"
+alias l="exa -la"
+alias cat="batcat -p"
