@@ -2,7 +2,7 @@
 assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-#disable = ["system", "emacs"]
+disable = ["firmware"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -98,7 +98,6 @@ use_sudo = false
 [firmware]
 # Offer to update firmware; if false just check for and display available updates
 #upgrade = true
-disable = true
 
 [flatpak]
 # Use sudo for updating the system-wide installation
