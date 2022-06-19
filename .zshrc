@@ -4,7 +4,6 @@ export PATH=$PATH:$HOME/.local/bin/:$HOME/.cargo/bin
 
 ## Virtualenvwrapper
 export WORKON_HOME=$HOME/.venvs
-export PROJECT_HOME=$HOME/gits
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # setup afterwards if needed
 
@@ -45,10 +44,10 @@ antigen apply
 
 ############################################# Aliases #############################################
 
-alias dc="docker-compose" # or 'docker compose'
+alias dc="docker compose" # or 'docker-compose'
 alias fd="fdfind"
 
 ##### Optional aliases
-alias ls="exa"
-alias l="exa -la"
-alias cat="batcat -p"
+# alias ls="exa"
+# alias l="exa -la"
+# alias cat="batcat -p"
