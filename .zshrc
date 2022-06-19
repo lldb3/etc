@@ -49,5 +49,6 @@ alias fd="fdfind"
 
 ##### Optional aliases
 # alias ls="exa"
-# alias l="exa -la"
+# alias l="exa -l"
+# alias la="exa -la"
 # alias cat="batcat -p"
